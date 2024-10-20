@@ -2,13 +2,10 @@
 # # Imports
 
 # %%
-import os
 import nltk
 import streamlit as st
 
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
-
-os.system('pip install --upgrade pip')
 
 # %% [markdown]
 # # Creation of the system
