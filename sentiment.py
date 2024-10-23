@@ -25,16 +25,16 @@ nltk.download( 'vader_lexicon' )
 
 s = SentimentIntensityAnalyzer()
 
-score = s.polarity_scores( user_input )
+if user_input:
+    # Get the sentiment scores
+    score = s.polarity_scores( user_input )
 
-if score == 0:
-    st.write( '### Neutral' )
-
-elif score[ 'neg' ] != 0:
-    st.write( '### Negative' )
-
-elif score[ 'pos' ] != 0:
-    st.write( '### Positive' )
-
+    # Analyze the compound score for overall sentiment
+    if score['compound'] >= 0.05:
+        st.write( '### Positive' )
+    elif score['compound'] <= -0.05:
+        st.write( '### Negative' )
+    else:
+        st.write( '### Neutral' )
 
 
